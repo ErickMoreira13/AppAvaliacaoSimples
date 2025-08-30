@@ -58,7 +58,10 @@ public class MainActivity extends AppCompatActivity {
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                Toast.makeText(MainActivity.this, "Nota selecionada: " + rating, Toast.LENGTH_SHORT).show();
+                if (rating != 0){
+                    Toast.makeText(MainActivity.this, "Nota selecionada: " + rating, Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
         /*
@@ -82,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 textEdit.setText("");
                 textMultiline.setText("");
                 Toast.makeText(MainActivity.this, "A sua avaliação foi enviada com sucesso!", Toast.LENGTH_SHORT).show();
+                ratingBar.setRating(0);
             }
         });
     }
